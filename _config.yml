@@ -1,3 +1,4 @@
-remote_theme: garrettboatman/Blank-Theme-Jekyll
+theme: jekyll-theme-tactile
 title: Welcome to Hafiz's page!
 description: Will be updating this over the next few days.
+remote_theme: garrettboatman/Blank-Theme-Jekyll
