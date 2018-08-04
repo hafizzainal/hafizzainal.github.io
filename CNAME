@@ -1,1 +1,6 @@
 lookingglass.london
+www.lookingglass.london
+
+$ git add -A
+$ git commit -m 'add CNAME file'
+$ git push origin master
