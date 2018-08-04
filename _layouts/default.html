@@ -26,34 +26,14 @@ img {vertical-align: middle;}
 
 }
 
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
+.container {
+  width: 10%;
+  border: dashed blue 1px;
 }
 
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -60px;
-    
-    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
-    opacity: 0;
-    transition: opacity 1s;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
+.container img {
+  max-height:100%;
+  max-width: 100%;
 }
     
 /* Style the header */
@@ -94,9 +74,6 @@ img {vertical-align: middle;}
   display: none;
   padding: 80px;
   text-align: center;
-  max-height: 500px;
-  height: 70%;
-  width: auto;
 }
 
 .mySlidesText {
@@ -198,7 +175,9 @@ img {vertical-align: middle;}
 
   <!-- Full-width slides/quotes -->
   <div class="mySlides">
-      <img src="http://i66.tinypic.com/29vgo48.jpg">
+    <div class="container">
+      <img src="http://i66.tinypic.com/29vgo48.jpg" />
+    </div>
   </div>
     
   <div class="mySlidesText">
@@ -215,7 +194,6 @@ img {vertical-align: middle;}
     in the manner of a rat majestic,<br>
     two little hands as if in prayer<br>
     lift a cup of empty air as it hungers on.<br>
-    <span class="tooltiptext">A Rat's Plight</span>
     </div>
   </div>
     
