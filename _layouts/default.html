@@ -26,6 +26,36 @@ img {vertical-align: middle;}
 
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    
+    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+    
 /* Style the header */
 .header {
     padding: 80px;
@@ -167,18 +197,21 @@ img {vertical-align: middle;}
 
   <!-- Full-width slides/quotes -->
   <div class="mySlidesText">
-    The small pink flesh of its nose<br>
-    hovers about the air.<br>
-    Its two nostrils like indolent eyes, vacuous<br>
-    ready to be filled with an aurora of smells<br>
-    that flies past in the gray-coated rodent’s journey<br> 
-    along the black tarred path.<br>
-    Its nose turns towards a tower<br>
-    of brown fabric and black cowhide boots.<br>
-    On two little feet it stands hunchback<br>
-    in the manner of a rat majestic,<br>
-    two little hands as if in prayer<br>
-    lift a cup of empty air as it hungers on.<br>
+    <div class="tooltip">Hover over me
+      The small pink flesh of its nose<br>
+      hovers about the air.<br>
+      Its two nostrils like indolent eyes, vacuous<br>
+      ready to be filled with an aurora of smells<br>
+      that flies past in the gray-coated rodent’s journey<br> 
+      along the black tarred path.<br>
+      Its nose turns towards a tower<br>
+      of brown fabric and black cowhide boots.<br>
+      On two little feet it stands hunchback<br>
+      in the manner of a rat majestic,<br>
+      two little hands as if in prayer<br>
+      lift a cup of empty air as it hungers on.<br>
+    <span class="tooltiptext">A Rat's Plight</span>
+</div>
   </div>
     
   <!-- Next/prev buttons -->
