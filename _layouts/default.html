@@ -49,11 +49,16 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  height: 700px !important;
-  max-height: 700px;
-  max-width: 700px;
   position: relative;
-  margin: auto;
+  background: #f1f1f1f1;
+  padding: 80px;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  padding: 80px;
+  text-align: center;
 }
 
 /* Next & previous buttons */
@@ -62,39 +67,33 @@ img {vertical-align: middle;}
   position: absolute;
   top: 50%;
   width: auto;
+  margin-top: -30px;
   padding: 16px;
-  margin-top: -22px;
-  color: #999691;
+  color: #888;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
   border-radius: 0 3px 3px 0;
+  user-select: none;
 }
 
 /* Position the "next button" to the right */
 .next {
+  position: absolute;
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
 }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+/* The dot/bullet/indicator container */
+.dot-container {
+  text-align: center;
+  padding: 20px;
+  background: #ddd;
 }
 
 /* The dots/bullets/indicators */
@@ -109,32 +108,16 @@ img {vertical-align: middle;}
   transition: background-color 0.6s ease;
 }
 
+/* Add a background color to the active dot/circle */
 .active, .dot:hover {
   background-color: #717171;
 }
 
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
 
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
+/* Add a blue color to the author */
+.author {color: cornflowerblue;}
 
 /* Footer */
 .footer {
@@ -154,33 +137,32 @@ img {vertical-align: middle;}
   <p></p>
 </div>
 
+<!-- Slideshow container -->
 <div class="slideshow-container">
 
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="https://media.architecturaldigest.com/photos/576ab1305ea3e586576ec3d9/3:4/w_350/picasso-world-record-sothebys-auction-01.jpg" style="width:100%">
-  <div class="text"></div>
+  <!-- Full-width slides/quotes -->
+  <div class="mySlides">
+    <q>I love you the more in that I believe you had liked me for my own sake and for nothing else</q>
+    <p class="author">- John Keats</p>
+  </div>
+
+  <div class="mySlides">
+    <q>But man is not made for defeat. A man can be destroyed but not defeated.</q>
+    <p class="author">- Ernest Hemingway</p>
+  </div>
+
+  <div class="mySlides">
+    <q>I have not failed. I've just found 10,000 ways that won't work.</q>
+    <p class="author">- Thomas A. Edison</p>
+  </div>
+
+  <!-- Next/prev buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="http://i65.tinypic.com/wco4lw.png" style="width:100%">
-  <div class="text"></div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext"></div>
-  <img src="http://i65.tinypic.com/wco4lw.png" style="width:100%">
-  <div class="text"></div>
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-</div>
-<br>
-
-<div style="text-align:center">
+<!-- Dots/bullets/indicators -->
+<div class="dot-container">
   <span class="dot" onclick="currentSlide(1)"></span> 
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
@@ -214,7 +196,6 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 </script>
-
 
 
 <div class="row">
