@@ -156,7 +156,33 @@ img {vertical-align: middle;}
     bottom: 0;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
 
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 210px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -250px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+    
 </style>
 </head>
 <body>
@@ -248,7 +274,9 @@ function showSlides(n) {
 </div>
 
 <div class="footer">
-  <p style="color:white;">looking glass</p>
+  <div class="tooltip"><p style="color:white;">looking glass</p>
+    <span class="tooltiptext">Born to immigrant parents in the Himmelpfortgrund suburb of Vienna, Schubert's uncommon gifts for music were evident from an early age. His father gave him his first violin lessons and his older brother gave him piano lessons, but Schubert soon exceeded their abilities. In 1808, at the age of eleven, he became a pupil at the Stadtkonvikt school, where he became acquainted with the orchestral music of Haydn, Mozart, and Beethoven. He left the Stadtkonvikt at the end of 1813, and returned home to live with his father, where he began studying to become a schoolteacher; despite this, he continued his studies in composition with Antonio Salieri and still composed prolifically. In 1821, Schubert was granted admission to the Gesellschaft der Musikfreunde as a performing member, which helped establish his name among the Viennese citizenry. He gave a concert of his own works to critical acclaim in March 1828, the only time he did so in his career. He died eight months later at the age of 31, possibly due to typhoid fever.</span>
+  </div>
 </div>
 
 
