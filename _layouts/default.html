@@ -183,6 +183,33 @@ img {vertical-align: middle;}
     visibility: visible;
 }
     
+.tooltipbottom {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltipbottom .tooltiptextbottom {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltipbottom:hover .tooltiptextbottom {
+    visibility: visible;
+}
+    
 </style>
 </head>
 <body>
@@ -202,8 +229,8 @@ img {vertical-align: middle;}
     when noble love sets<br>
     in the seat of the heart.<br>
       <p class="author">Still Life</p><br>
-      <div class="tooltip"><i>help</i><br>
-        <span class="tooltiptext">TBE</span>
+      <div class="tooltipbottom"><i>help</i><br>
+        <span class="tooltiptextbottom">TBE</span>
       </div>
   </div>
     
