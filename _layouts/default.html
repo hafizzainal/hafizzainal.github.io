@@ -39,21 +39,36 @@ img {vertical-align: middle;}
     font-size: 20px;
 }
 
-/* Create two equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 40%;
-    padding: 10px;
+.pseudo-three-col {
+  position: relative;
+  background: #eee;
+  z-index: 1;
+  width: 100%;
 }
-
+.pseudo-three-col .col {
+  position: relative;
+  width: 27%;
+  padding: 3%;
+  float: left;
+}
+.pseudo-three-col .col:nth-child(1) { left: 33%; }
+.pseudo-three-col .col:nth-child(2) { left: -33.3%; }
+.pseudo-three-col .col:nth-child(3) { left: 0; }
+.pseudo-three-col:before, .pseudo-three-col:after {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 33.4%;
+  width: 33.4%;
+  height: 100%;
+  background: #ccc;
+}
+.pseudo-three-col:after {
+  left: 66.667%;
+  background: #eee;
+}
     
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 /* Slideshow container */
 .slideshow-container {
   height: 700px !important;
@@ -201,8 +216,7 @@ img {vertical-align: middle;}
 
   <!-- Full-width slides/quotes -->
   <div class="mySlidesText">
-    <div class="row">
-      <div class="column" style="background-color:#eff0f0;">
+    <div class="col" style="background-color:#eff0f0;">
       <p class="work">
       Pigments<br>
       on that blank canvas<br>
@@ -215,8 +229,8 @@ img {vertical-align: middle;}
       in the seat of the heart.<br></p>
       <p class="author">
       Still Life</p>
-      </div>
-      <div class="column" style="background-color:#0e0e0e;">
+    </div>
+    <div class="col" style="background-color:#0e0e0e;">
       <p class="bio">
             The flame burns brighter in total darkness<br>
       like the sun in all of black space<br>
@@ -238,8 +252,7 @@ img {vertical-align: middle;}
       like the sun in all of black space<br>
       where there is but one mighty fire flickering<br>
       —a candle painting a woman’s face<br></p>
-      </div>
-    </div> 
+    </div>
   </div>
     
   <div class="mySlidesText">
