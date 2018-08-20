@@ -3,76 +3,239 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-#page-wrap { width: 80%; margin: 60px auto; }
-#page-wrap > div { margin: 0 0 50px 0; min-width: 500px; width: 100%; }
+@import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
+    
+body {
+    font-family: 'Lora', serif;
+    color: #eeeff0;
+    background-color: #0e0e0e;
+} 
+    
+.wrapper {
+  display: flex;  
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
 
-.group:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
-.group { display: inline-block; }
+.wrapper > * {
+  padding: 10px;
+  flex: 1 100%;
+}
 
-#doug-neiner-three { 
-            overflow: hidden;
-            background-color: #ccc; 
-            background-image: -moz-linear-gradient(
-                left, 
-                #eee, 
-                #eee 25%,
-                #ccc 25%,
-                #ccc 75%,
-                #eee 75%,
-                #eee 100%
-            );
-            
-            background-image: -webkit-gradient(
-                linear,
-                left top,
-                right top,
-                
-                color-stop(0, #eee),
-                color-stop(25%, #eee),
-                color-stop(25%, #ccc),
-                color-stop(75%, #ccc),
-                color-stop(75%, #eee),
-                color-stop(100%, #eee)
-            );   
-        
-        }
-        #doug-neiner-three .col {
-            width: 21%; float: left; padding: 2%;
-        }
-        #doug-neiner-three .col:nth-child(1) { margin-left:  25%; width: 46%; } /* PRIMARY */
-        #doug-neiner-three .col:nth-child(2) { margin-left: -75%; } 
-        
-/* If the browser window is smaller than 600px, make the columns stack on top of each other */
-@media only screen and (max-width: 600px) {
-    .col { 
-        display: block;
+.header {
+  background: tomato;
+}
+
+.footer {
+  background: lightgreen;
+}
+
+.main {
+  text-align: left;
+  background: deepskyblue;
+}
+
+.aside-1 {
+  background: gold;
+}
+
+.aside-2 {
+  background: hotpink;
+}
+
+@media all and (min-width: 600px) {
+  .aside { flex: 1 auto; }
+}
+
+@media all and (min-width: 800px) {
+  .main    { flex: 3 0px; }
+  .aside-1 { order: 1; } 
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+  .footer  { order: 4; }
+}
+
+body {
+  padding: 2em; 
+}
+     
+.mySlides {display: none;}
+
+.mySlidesText {display:none;}
+     
+/* Slideshow container */
+.slideshow-container {
+  height: 700px !important;
+  position: relative;
+  background: #0e0e0e;
+  margin: auto;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  padding: 80px;
+  text-align: center;
+  max-height: 600px;
+  margin: 0 auto;
+}
+
+.mySlidesText {
+  display: none;
+  padding: 140px;
+  margin: 20 auto;
+  margin-left: 20px;
+  font-size: 18px;
+}
+	
+.mySlidesImage {
+  display: none;
+  padding: 100px;
+  margin: 20 auto;
+  margin-left: 20px;
+  font-size: 16px;
+}
+    
+/* Next & previous buttons */
+.prev {
+  cursor: context-menu;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: #888;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  position: absolute;
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Position the "next button" to the right */
+.next {
+  cursor: context-menu;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: #888;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  position: absolute;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+ 
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+     
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.4s;
+    animation-name: zoom;
+    animation-duration: 0.4s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
         width: 100%;
     }
 }
-     
+  
 </style>
 </head>
 <body>
-<div id="page-wrap">    
-<div id="doug-neiner-three" class="group">
-    
-            <div class="col"><h3>I am listed first in source order.</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p></div>  
-            <div class="col"><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.<br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br></p></div>
-            <div class="col"><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p></div>
-    
-        </div>
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width slides/quotes -->
+  <div class="mySlides">
+    <div class="wrapper">
+      <header class="header">Header</header>
+      <article class="main">
+      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>  
+      </article>
+      <aside class="aside aside-1">Aside 1</aside>
+      <aside class="aside aside-2">Aside 2</aside>
+      <footer class="footer">Footer</footer>
+    </div>
+  </div>
+     
 </body>
 </html>
