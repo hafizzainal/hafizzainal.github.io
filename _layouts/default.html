@@ -9,12 +9,12 @@ body {
     font-family: 'Lora', serif;
     color: #eeeff0;
     background-color: #0e0e0e;
+    padding: 2em; 
 } 
     
 .wrapper {
   display: flex;  
   flex-flow: row wrap;
-  font-weight: bold;
   text-align: center;
 }
 
@@ -24,24 +24,26 @@ body {
 }
 
 .header {
-  background: tomato;
+  background: #0e0e0e;
 }
 
 .footer {
-  background: lightgreen;
+  background: #0e0e0e;
 }
 
 .main {
   text-align: left;
-  background: deepskyblue;
+  background: #0e0e0e;
 }
 
 .aside-1 {
-  background: gold;
+  text-align: left;
+  background: #0e0e0e;
 }
 
 .aside-2 {
-  background: hotpink;
+  text-align: left;
+  background: #0e0e0e;
 }
 
 @media all and (min-width: 600px) {
@@ -55,10 +57,6 @@ body {
   .aside-2 { order: 3; }
   .footer  { order: 4; }
 }
-
-body {
-  padding: 2em; 
-}
      
 .mySlides {display: none;}
 
@@ -66,7 +64,6 @@ body {
      
 /* Slideshow container */
 .slideshow-container {
-  height: 700px !important;
   position: relative;
   background: #0e0e0e;
   margin: auto;
@@ -76,25 +73,8 @@ body {
 .mySlides {
   display: none;
   padding: 80px;
-  text-align: center;
   max-height: 600px;
   margin: 0 auto;
-}
-
-.mySlidesText {
-  display: none;
-  padding: 140px;
-  margin: 20 auto;
-  margin-left: 20px;
-  font-size: 18px;
-}
-	
-.mySlidesImage {
-  display: none;
-  padding: 100px;
-  margin: 20 auto;
-  margin-left: 20px;
-  font-size: 16px;
 }
     
 /* Next & previous buttons */
@@ -227,15 +207,78 @@ body {
   <!-- Full-width slides/quotes -->
   <div class="mySlides">
     <div class="wrapper">
-      <header class="header">Header</header>
+      <header class="header">looking glass</header>
       <article class="main">
       <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>  
       </article>
-      <aside class="aside aside-1">Aside 1</aside>
-      <aside class="aside aside-2">Aside 2</aside>
-      <footer class="footer">Footer</footer>
+      <aside class="aside aside-1">Aside 1
+      <p>asdsadadsa<br>
+      asdasdsasdgasg<br>
+      </p></aside>
+      <aside class="aside aside-2">Aside 2
+      <p>asdsadadsa<br>
+      asdasdsasdgasg<br>
+      </p></aside>
     </div>
   </div>
+  
+  
+  <!-- Next/prev buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#8942;</a>
+  <a class="next" onclick="plusSlides(1)">&#8942;</a>
+</div>
+  
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.querySelectorAll(".mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+     
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
      
 </body>
 </html>
