@@ -60,6 +60,8 @@ body {
   bottom: 0;
   text-indent: 50px;
   color: white;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main {
@@ -166,6 +168,35 @@ img {
   color: white;
 }
 	
+.onClickTextOverImage{
+  width:700px;
+  height:200px;
+  background-size:cover;
+  display:inline-block;
+  border-radius:16px;
+  margin:4px;
+}
+
+.onClickTextOverImage div{
+  color:black;
+  padding:8px;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  background-color:white;
+  border-radius:16px;
+  text-align:center;
+  opacity:0;
+  visibility:hidden;
+  transition:.4s;
+}
+
+.onClickTextOverImage.show div{
+  opacity:1;
+  visibility:visible;
+}
+	
 #myImg {
     border-radius: 5px;
     cursor: default;
@@ -198,7 +229,11 @@ img {
       <aside class="aside aside-1"></aside>
       <aside class="aside aside-2">
       </aside>
-      <footer class="footer">Hafiz Zainal</footer>
+      <footer class="footer">
+        <div class="onClickTextOverImage">
+          <div>Hafiz Zainal</div>
+        </div>
+      </footer>
     </div>
   </div>
 
@@ -977,6 +1012,28 @@ var span = document.getElementsByClassName("close")[0];
 
 span.onclick = function() { 
     modal.style.display = "none";
+}
+</script>
+
+<script>
+var textOverImages = document.getElementsByClassName("onClickTextOverImage");
+var previousTextOverImage;
+for (var i = 0; i < textOverImages.length; i++) {
+  textOverImages[i].onclick = function() {
+    var classes = this.classList;
+    if (classes.contains("show")) {
+      classes.remove("show");
+    } else {
+      if (previousTextOverImage != null)
+        previousTextOverImage.classList.remove("show");
+      previousTextOverImage = this;
+      classes.add("show");
+    }
+  }
+}
+
+function stopPropagation(event){
+  event.stopPropagation();
 }
 </script>
      
